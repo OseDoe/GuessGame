@@ -20,17 +20,19 @@ function guessGame(guess) {
 	console.log("RandomNumber: " + randomNumber);
 	// First, we will check that the number is between 1 and 100. Then we'll proceed to check the selected number with the one randomly selected.
 	if ( guess < 1 || guess > 100 || isNaN(guess)) {
-		statusText.innerHTML(guess + " is an invalid input. It must be a number between the range of 1 and 100.");
+		statusText.innerHTML = guess + " is an invalid input. It must be a number between the range of 1 and 100.";
 	} else {
 		// Add the number of attemps.
 		tries();
 		if (guess == randomNumber) {
-			statusText.innerHTML = "Congratz, you have guessed the number. It was " + guess + ". And you guessed in " + numberTries + " attempts.";
+			statusText.innerHTML = "Congratulations! It's the number " + guess + "- And you guessed in " + numberTries + " attempts.";
 			correctAnswer = true;
 		} else if ( guess > randomNumber ) {
-			statusText.innerHTML = "Your number is too high.";
+			statusText.innerHTML = guess + " is too high.";
+			input.value = "";
 		} else if ( guess < randomNumber ) {
-			statusText.innerHTML = "Your number is too low.";
+			statusText.innerHTML = guess + " is too low.";
+			input.value = "";
 		}
 	}
 }
